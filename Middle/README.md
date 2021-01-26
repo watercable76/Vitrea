@@ -1,8 +1,9 @@
 # Classes
 [Point](#Point)
 
-[MovementStyle](#)
-[]()
+[MovementStyle](#MovementStyle)
+
+[Piece](#Piece)
 
 
 # Point
