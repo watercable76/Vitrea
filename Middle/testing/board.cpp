@@ -33,26 +33,26 @@ Board::Board()
     board[1][7] = new Piece(0, 7, 1, true, 'P');
     
     //Black Pieces
-    board[7][0] = new Piece(5, 0, 7, false, 'R');
-    board[7][1] = new Piece(4, 1, 7, false, 'N');
-    board[7][2] = new Piece(3, 2, 7, false, 'B');
-    board[7][3] = new Piece(2, 3, 7, false, 'Q');
-    board[7][4] = new Piece(1, 4, 7, false, 'K');
-    board[7][5] = new Piece(3, 5, 7, false, 'B');
-    board[7][6] = new Piece(4, 6, 7, false, 'N');
-    board[7][7] = new Piece(5, 7, 7, false, 'R');
+    board[7][0] = new Piece(5, 0, 7, false, 'r');
+    board[7][1] = new Piece(4, 1, 7, false, 'n');
+    board[7][2] = new Piece(3, 2, 7, false, 'b');
+    board[7][3] = new Piece(2, 3, 7, false, 'q');
+    board[7][4] = new Piece(1, 4, 7, false, 'k');
+    board[7][5] = new Piece(3, 5, 7, false, 'b');
+    board[7][6] = new Piece(4, 6, 7, false, 'n');
+    board[7][7] = new Piece(5, 7, 7, false, 'r');
     //Black Pawns
-    board[6][0] = new Piece(0, 0, 6, false, 'P');
-    board[6][1] = new Piece(0, 1, 6, false, 'P');
-    board[6][2] = new Piece(0, 2, 6, false, 'P');
-    board[6][3] = new Piece(0, 3, 6, false, 'P');
-    board[6][4] = new Piece(0, 4, 6, false, 'P');
-    board[6][5] = new Piece(0, 5, 6, false, 'P');
-    board[6][6] = new Piece(0, 6, 6, false, 'P');
-    board[6][7] = new Piece(0, 7, 6, false, 'P');
+    board[6][0] = new Piece(0, 0, 6, false, 'p');
+    board[6][1] = new Piece(0, 1, 6, false, 'p');
+    board[6][2] = new Piece(0, 2, 6, false, 'p');
+    board[6][3] = new Piece(0, 3, 6, false, 'p');
+    board[6][4] = new Piece(0, 4, 6, false, 'p');
+    board[6][5] = new Piece(0, 5, 6, false, 'p');
+    board[6][6] = new Piece(0, 6, 6, false, 'p');
+    board[6][7] = new Piece(0, 7, 6, false, 'p');
     
     //Test Pieces
-    //board[4][3] = new Piece(5, 3, 4, false, 'R');
+    //board[0][1] = new Piece(6, 1, 0, false, '?'); // Knight with EA
 }
 
 Board::~Board()
