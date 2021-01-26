@@ -68,7 +68,7 @@ void Board::display(Point perspective)
     std::cout << ",---,---,---,---,---,---,---,---,\n";
     for (int y = 7; y >= 0; y--)
     {
-        std::cout << "|";
+        std::cout << y;
         for (int x = 0; x < 8; x++)
         {
             if (perspective > Point(-1, -1) && perspective < Point(8, 8))
@@ -90,7 +90,7 @@ void Board::display(Point perspective)
         if (y != 0)
             std::cout << "}---+---+---+---+---+---+---+---{\n";
         else
-            std::cout << "'---'---'---'---'---'---'---'---'\n";
+            std::cout << "'-0-'-1-'-2-'-3-'-4-'-5-'-6-'-7-'\n";
     }
 }
 
