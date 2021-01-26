@@ -17,7 +17,10 @@ class Board
 {
 private:
     
-    Piece * board[8][8];
+    Piece *              board[8][8];
+    
+    std::vector<Piece *> capturesWhite;
+    std::vector<Piece *> capturesBlack;
     
 public:
     Board();
@@ -26,7 +29,7 @@ public:
     void display    (Point perspective = Point(-1, -1));
     
     bool canMove    (Point to, Point from);
-    bool checkPath  (Point to, Point from, MovementStyle ms, Piece * p);
+    int  move       (Point to, Point from, bool whiteTurn);
 };
 
 #endif /* board_hpp */

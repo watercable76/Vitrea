@@ -30,7 +30,7 @@ void test()
     };
     
     std::cout << "Creating a Rook at 3, 4.\n";
-    Piece p = *Piece(5).toWhite()->place(3, 4);
+    Piece p = Piece(5, 3, 4, true, 'R');
     std::cout << "Commencing test.\n";
     int failures = 0;
     bool take = false;
@@ -56,14 +56,43 @@ int main()
 {
     Board b;
     
-    Point input;
+    Point to;
+    Point from;
+    bool turn = true;
+    int error;
     while (true)
     {
-        std::cout << "x : ";
-        std::cin >> input.x;
-        std::cout << "y : ";
-        std::cin >> input.y;
-        b.display(input);
+        b.display();
+        std::cout << "select a piece\n";
+        std::cout << "x y : ";
+        std::cin >> from.x;
+        std::cin >> from.y;
+        b.display(from);
+        std::cout << "select a destination\n";
+        std::cout << "x y : ";
+        std::cin >> to.x;
+        std::cin >> to.y;
+        error = b.move(to, from, turn);
+        if (error)
+            switch (error)
+            {
+                case 1:
+                    std::cout << "Cannot Move : Out of bounds.\n";
+                    break;
+                case 2:
+                    std::cout << "Cannot Move : No piece found.\n";
+                    break;
+                case 3:
+                    std::cout << "Cannot Move : Piece does not belong to player.\n";
+                    break;
+                case 4:
+                    std::cout << "Cannot Move : Illegal move.\n";
+                    break;
+                default:
+                    std::cout << "Cannot Move : Unknown.\n";
+                    break;
+            }
+        else turn = !turn;
     }
     
     return 0;

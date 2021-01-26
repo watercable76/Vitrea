@@ -77,6 +77,14 @@ public:
     {
         return not (this->x == that.x && this->y == that.y);
     }
+    bool operator> (const Point& that)
+    {
+        return this->x > that.x && this->y > that.y;
+    }
+    bool operator< (const Point& that)
+    {
+        return this->x < that.x && this->y < that.y;
+    }
 };
 
 

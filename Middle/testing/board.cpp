@@ -15,7 +15,7 @@ Board::Board()
     
     //White Pieces
     board[0][0] = new Piece(5, 0, 0, true, 'R');
-    board[0][1] = new Piece(6, 1, 0, true, 'N');
+    board[0][1] = new Piece(4, 1, 0, true, 'N');
     board[0][2] = new Piece(3, 2, 0, true, 'B');
     board[0][3] = new Piece(2, 3, 0, true, 'Q');
     board[0][4] = new Piece(1, 4, 0, true, 'K');
@@ -50,11 +50,16 @@ Board::Board()
     board[6][5] = new Piece(0, 5, 6, false, 'P');
     board[6][6] = new Piece(0, 6, 6, false, 'P');
     board[6][7] = new Piece(0, 7, 6, false, 'P');
+    
+    //Test Pieces
+    //board[4][3] = new Piece(5, 3, 4, false, 'R');
 }
 
 Board::~Board()
 {
     for (int y = 0; y < 8; y++) for (int x = 0; x < 8; x++) if (board[y][x]) delete board[y][x];
+    capturesWhite.clear();
+    capturesBlack.clear();
 }
 
 void Board::display(Point perspective)
@@ -66,19 +71,20 @@ void Board::display(Point perspective)
         std::cout << "|";
         for (int x = 0; x < 8; x++)
         {
-            if (perspective != Point(-1, -1))
-                if (canMove(Point(x, y), perspective))
-                    
-            if (board[y][x])
-                std::cout << " " << board[y][x]->name << " |";
-            else
-                if (perspective != Point(-1, -1))
+            if (perspective > Point(-1, -1) && perspective < Point(8, 8))
+                if (board[perspective.y][perspective.x])
                     if (canMove(Point(x, y), perspective))
-                        std::cout << " X |";
+                        highlight = '-';
                     else
-                        std::cout << "   |";
+                        highlight = ' ';
                 else
-                    std::cout << "   |";
+                    highlight = ' ';
+            else
+                highlight = ' ';
+            if (board[y][x])
+                std::cout << highlight << board[y][x]->name << highlight << "|";
+            else
+                std::cout << highlight << " " << highlight << "|";
         }
         std::cout << "\n";
         if (y != 0)
@@ -88,40 +94,10 @@ void Board::display(Point perspective)
     }
 }
 
-bool Board::checkPath(Point to, Point from, MovementStyle ms, Piece * p)
-{
-    Point dir = to - from;
-    if (dir.x >= 0) {dir.x =  1;}
-    else            {dir.x = -1;}
-    if (dir.y >= 0) {dir.y =  1;}
-    else            {dir.y = -1;}
-    
-    bool reversePath      = true;
-    bool pathClear        = true;
-    bool pathClearReverse = true;
-    
-    for (int m = 1; m <= ms.magnitude; m++)
-        if      (from + (dir * Point(m, m) * ms.slope          ) == to)
-            reversePath = false;
-        else if (from + (dir * Point(m, m) * ms.slope.reverse()) == to)
-            reversePath = true;
-        else
-            if      (board[(from + (dir * Point(m, m) * ms.slope          )).y]
-                          [(from + (dir * Point(m, m) * ms.slope          )).x] &&
-                          !p->canJump())
-                pathClear        = false;
-            else if (board[(from + (dir * Point(m, m) * ms.slope.reverse())).y]
-                          [(from + (dir * Point(m, m) * ms.slope.reverse())).x] &&
-                          !p->canJump())
-                pathClearReverse = false;
-            
-    return (!reversePath && pathClear) || (reversePath && pathClearReverse);
-}
-
 bool Board::canMove(Point to, Point from)
 {
     Piece * fmP = board[from.y][from.x];
-    Piece * toP = board[to.y  ][to.y  ];
+    Piece * toP = board[to.y][to.x];
     MovementStyle * path;
     
     if (toP)
@@ -131,14 +107,71 @@ bool Board::canMove(Point to, Point from)
             path = fmP->isValidMove(to, true);
     else
         path = fmP->isValidMove(to);
-        
+    
     if (path)
     {
-        bool clear = checkPath(to, from, *path, fmP);
+        Point dir = to - from;
+        if (dir.x >= 0) {dir.x =  1;}
+        else            {dir.x = -1;}
+        if (dir.y >= 0) {dir.y =  1;}
+        else            {dir.y = -1;}
+        
+        int  reversePath      = -1;
+        bool pathClear        = true;
+        bool pathClearReverse = true;
+        
+        for (int m = 1; m <= path->magnitude && reversePath == -1; m++)
+        {
+            Point there         = from + (dir * Point(m, m) * path->slope          );
+            Point thereReversed = from + (dir * Point(m, m) * path->slope.reverse());
+            
+            if      (there         == to)
+                reversePath = 0;
+            else if (thereReversed == to)
+                reversePath = 1;
+            else
+            {
+                if (board[there        .y][there        .x] && !fmP->canJump())
+                    pathClear        = false;
+                if (board[thereReversed.y][thereReversed.x] && !fmP->canJump())
+                    pathClearReverse = false;
+            }
+        }
         delete path;
-        return clear;
+        return (!reversePath && pathClear) || (reversePath && pathClearReverse);
     }
     
     delete path;
     return false;
+}
+
+int Board::move(Point to, Point from, bool whiteTurn)
+{
+    if (to   < Point(0, 0) || to   > Point(7, 7) ||
+        from < Point(0, 0) || from > Point(7, 7))
+        return 1; // Something is out of bounds
+    
+    if (!board[from.y][from.x])
+        return 2; // No piece at "from"
+    
+    if (board[from.y][from.x]->isWhite() != whiteTurn)
+        return 3; // Piece does not belong to player
+    
+    if (!canMove(to, from))
+        return 4; // Illegal move
+    
+    Piece * fmP = board[from.y][from.x];
+    board[from.y][from.x] = NULL;
+    
+    if (board[to.y][to.x])
+    {
+        if (fmP->isWhite())
+            capturesWhite.push_back(board[to.y][to.x]);
+        else
+            capturesBlack.push_back(board[to.y][to.x]);
+    }
+    board[to.y][to.x] = fmP;
+    fmP->move(to);
+    
+    return 0;
 }
