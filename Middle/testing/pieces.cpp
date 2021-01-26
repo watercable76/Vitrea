@@ -96,6 +96,7 @@ MovementStyle * Piece::isValidMove(Point move, bool take)
 
 int presets[16][16] =
 {
+   //0  1  2  3  4  5  6  7  8  9  A  B  C  D  E  F
     {1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1}, // 0 - Pawn
     {1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0}, // 1 - King
     {1, 1, 1, 7, 1, 1, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0}, // 2 - Queen
@@ -103,6 +104,24 @@ int presets[16][16] =
     {1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0}, // 4 - Knight
     {1, 1, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, // 5 - Rook
     {1, 2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0}  // 6 - Knight w/ ea
+    
+    //0 - MovementStyleOneExists
+    //1 - MovementStyleOneSlopeX
+    //2 - MovementStyleOneSlopeY
+    //3 - MovementStyleOneMagnitude
+    //4 - MovementStyleTwoExists
+    //5 - MovementStyleTwoSlopeX
+    //6 - MovementStyleTwoSlopeY
+    //7 - MovementStyleTwoMagnitude
+    //8 - MovementStyleThreeExists
+    //9 - MovementStyleThreeSlopeX
+    //A - MovementStyleThreeSlopeY
+    //B - MovementStyleThreeMagnitude
+    //C - CanJump
+    //D - CanEarlyAccellerate
+    //E - CanSideStep
+    //F - CanForwardMarch
+    
 };
 
 

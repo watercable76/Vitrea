@@ -17,7 +17,11 @@ public:
     // Constructors
     MovementStyle(Point s    ,            int m    ) : slope(s          ), magnitude(m) {}
     MovementStyle(int   x = 0, int y = 0, int m = 0) : slope(Point(x, y)), magnitude(m) {}
-    MovementStyle(const MovementStyle &that) {this->slope = that.slope; this->magnitude = that.magnitude;}
+    MovementStyle(const MovementStyle &that        )
+    {
+        this->slope     = that.slope;
+        this->magnitude = that.magnitude;
+    }
     
     Point slope;
     int   magnitude;
