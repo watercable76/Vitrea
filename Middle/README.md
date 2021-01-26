@@ -1,4 +1,11 @@
-# Class Point
+# Classes
+[Point](#Point)
+
+[MovementStyle](#)
+[]()
+
+
+# Point
 ##  Construction
 int, int
 ##  Methods
@@ -12,7 +19,7 @@ x - int
 
 y - int
 
-# Class MovementStyle 
+# MovementStyle 
 ## Construction 
 Point, int
 
@@ -25,7 +32,7 @@ slope     - Point
 
 magnitude - int
 
-# Class Piece 
+# Piece 
 ## Construction
 int
 ## Methods      
