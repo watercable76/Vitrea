@@ -45,14 +45,14 @@ Our program is designed to teach genetics. Using a modified chess program where 
 The bolded days are the days that we need to get the milestones done by. Front is the display part of the project, middle is the processing, and end is the storage.
 
 * Week 5 (Feb 1-**6**): 	
-   * milestone - todo list done:
+   * milestone - get todo list done:
       * Front - Connect Unreal to Github. 
       * Mid- Have basic chess working
       * Back- Decide what information the database will be used for.
       * Technical training- Github, Unreal
 
 * Week 6 (Feb 8-**13**):
-   * milestone - todo list done:
+   * milestone - get todo list done:
       * Create Breeding logic
       * front - make some assets
       * middle/back - create basic piece classes (in unreal c++ script)
