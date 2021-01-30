@@ -1,8 +1,8 @@
 CSE 310—Applied Programming
 W04-Teach: Project Plan
 
-Assigned Group Number	8
-Unique Team Name	Trailmix
+Assigned Group Number:	8
+Unique Team Name:	Trailmix
 
 
 1.	Select the type of project you will be creating.  Place an “X” under the “Selected Column”:
@@ -84,3 +84,5 @@ The bolded days are the days that we need to get the milestones done by. Front i
 
 
 5.	The team leader is responsible for scheduling and conducting all team meetings.  Who will be the team leader for your project?
+
+Joshua Pettingill
