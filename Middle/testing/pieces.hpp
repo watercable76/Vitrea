@@ -66,8 +66,8 @@ public:
     // // Location
     Piece*        place            (Point pos                  )  {position = pos                  ; return this;}
     Piece*        place            (int   x,  int y            )  {position = Point(x, y)          ; return this;}
-    Piece*        toWhite          (                           )  {white  = true                 ; return this;}
-    Piece*        toBlack          (                           )  {white  = false                ; return this;}
+    Piece*        toWhite          (                           )  {white  = true                   ; return this;}
+    Piece*        toBlack          (                           )  {white  = false                  ; return this;}
     
     // Value Collection Methods
     long                       MSCount                   (     )  {return movementStyle.size()                  ;}
@@ -80,7 +80,6 @@ public:
     bool                       canEarlyAccel             (     )  {return earlyAccel                            ;}
     bool                       canForwardMarch           (     )  {return forwardMarch                          ;}
     bool                       canSideStep               (     )  {return sideStep                              ;}
-    
     
     // Movement Methods
     MovementStyle * isValidMove    (Point move      , bool take = false);
