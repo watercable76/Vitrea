@@ -56,11 +56,15 @@ The bolded days are the days that we need to get the milestones done by. Front i
       * front - make some assets
       * middle/back - create basic piece classes (in unreal c++ script)
       * middle - piece combination logic (breeding)
+      * Look into the best option for the database
+         * Will it be a file?
+         * Will it connect to a database and have to download each time? 
 
 * Week 7 (Feb 15-**20**):
    * piece interaction (implement chess game logic)
    * general gameplay on unreal
    * recognizable attributes
+   * Create the database and connect it to unreal.
 
 * Week 8 (Feb 22-**27**):
    * game is playable (and ugly :)
