@@ -53,7 +53,6 @@ The bolded days are the days that we need to get the milestones done by. Front i
 
 * Week 6 (Feb 8-**13**):
    * milestone - get todo list done:
-      * Create Breeding logic
       * front - make some assets
       * middle/back - create basic piece classes (in unreal c++ script)
       * middle - piece combination logic (breeding)
