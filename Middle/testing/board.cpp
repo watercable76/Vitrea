@@ -20,7 +20,7 @@ Board::Board()
     board[0][3] = new Piece(2, 3, 0, true, 'Q');
     board[0][4] = new Piece(1, 4, 0, true, 'K');
     board[0][5] = new Piece(3, 5, 0, true, 'B');
-    board[0][6] = new Piece(4, 6, 0, true, 'N');
+    board[0][6] = new Piece(6, 6, 0, true, '?');
     board[0][7] = new Piece(5, 7, 0, true, 'R');
     //White Pawns
     board[1][0] = new Piece(0, 0, 1, true, 'P');
