@@ -25,9 +25,9 @@ Written in C# with SQLite
 
 * [Brendan Koetting](https://github.com/Bren585)
 * [Joshua Pettingill](https://github.com/JPNobody)
-* [Eli Jukes](htpps://github.com/JukeOfHazzard)
-* [Nicholas Cable](htpps://github.com/watercable76)
-* [Elijah Harrison](htpps://github.com/ehrrsn7)
+* [Eli Jukes](https://github.com/JukeOfHazzard)
+* [Nicholas Cable](https://github.com/watercable76)
+* [Elijah Harrison](https://github.com/ehrrsn7)
 
 
 # Useful Websites
