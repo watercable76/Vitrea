@@ -15,9 +15,3 @@ Vitrea/UserSettings
 *.userprefs
 *.user
 *.booproj
-*.meta
-*.asset
-*.dll
-*.pdb
-*.txt
-*.hash
