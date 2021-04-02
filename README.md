@@ -25,9 +25,9 @@ Written in C# with SQLite
 
 * [Brendan Koetting](https://github.com/Bren585)
 * [Joshua Pettingill](https://github.com/JPNobody)
-* [Eli Jukes](htpps://github.com/JukeOfHazzard)
-* [Nicholas Cable](htpps://github.com/watercable76)
-* [Elijah Harrison](htpps://github.com/ehrrsn7)
+* [Eli Jukes](https://github.com/JukeOfHazzard)
+* [Nicholas Cable](https://github.com/watercable76)
+* [Elijah Harrison](https://github.com/ehrrsn7)
 
 
 # Useful Websites
@@ -35,6 +35,11 @@ Written in C# with SQLite
 * [C# Official Documentation](docs.microsoft.com)
 * [Unity Official Documentation](docs.unity3d.com)
 * [Offical TMP Documentation](http://digitalnativestudios.com/textmeshpro/docs/)
+* [Downloading C# to VS Code](https://code.visualstudio.com/docs/languages/csharp)  
+* [C# Tutorial](https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code)  
+* [More C#](https://docs.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/)  
+* [sqlite3 commands](https://docs.microsoft.com/en-us/dotnet/api/microsoft.data.sqlite?view=msdata-sqlite-5.0.0)
+* [LinkedIn Learning](https://www.linkedin.com/learning/learning-c-sharp-3/a-hello-world-application?u=2153100)
 
 # Future Work
 
